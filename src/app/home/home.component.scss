@@ -1,0 +1,191 @@
+.pagecontent{
+  .headsection{
+
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.73)),
+    url(../../assets/images/home/background.jpg) no-repeat fixed center center;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    box-shadow: inset 0 0 600px 100px black;
+    height: 1000px;
+
+    img{
+      float: left;
+      width: 13%;
+      margin: 30px 0 0 50px;
+    }
+    .loginbtn{
+      float: right;
+      background-color: red;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      padding: 6px 20px;
+      margin: 30px 50px 0 0;
+      font-size: 16px;
+    }
+
+    div{
+      text-align: center;
+      color: white;
+      margin: auto;
+      padding-top: 250px;
+      width: 50%;
+      h1{
+        font-size: 50px;
+        font-weight: bolder;
+        margin-bottom: 20px;
+      }
+      h3{
+        margin-bottom: 22px;
+      }
+      input{
+        width: 70%;
+        height: 70px;
+        font-size: 20px;
+        padding-left: 15px;
+
+      }
+      button{
+        width: 30%;
+        height: 70px;
+        border: none;
+        vertical-align: top;
+        background-color: red;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      p{
+        font-size: 19px;
+      }
+    }
+  }
+  .headsection:before {
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
+    z-index: 100;
+  }
+  .infosection{
+
+    border-top: 10px solid #202020;
+    background-color: black;
+    height: 550px;
+    padding: 0 8% 0 8%;
+
+    div{
+      color: white;
+      width: 50%;
+      min-width: 300px;
+      position: relative;
+
+      h1{
+        margin-top: 100px;
+        margin-bottom: 20px;
+        font-size: 50px;
+      }
+      h3{
+        line-height: 34px;
+        font-size: 30px;
+        font-weight: normal;
+      }
+
+
+
+    }
+
+    .devicepile {
+      img {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        z-index: 2;
+      }
+      video {
+        position: absolute;
+        top: 63px;
+        left: 131px;
+        z-index: 1;
+        width: 391px;
+      }
+    }
+
+    .tv{
+      img{
+        position:absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+      }
+      video {
+        position: absolute;
+        top: 110px;
+        left: 94px;
+        z-index: 1;
+        width: 467px;
+      }
+
+    }
+    .leftdiv{
+      float: left;
+    }
+    .rightdiv{
+      float: left;
+    }
+
+
+  }
+
+  .vragensection{
+    border-top: 10px solid #202020;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding-bottom: 70px;
+    h1{
+      margin-bottom: 50px;
+      margin-top: 70px;
+      font-size: 45px;
+    }
+    .collapsible {
+      background-color: #202020;
+      cursor: pointer;
+      padding: 18px;
+      width: 60%;
+      margin-top: 10px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 25px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .active, .collapsible:hover {
+      background-color: #555;
+    }
+
+    .content {
+      padding: 18px 18px;
+      text-align: left;
+      width: 60%;
+      margin: auto;
+      display: none;
+      overflow: hidden;
+      background-color: #202020;
+    }
+  }
+
+  .footersection{
+    border-top: 10px solid #202020;
+  }
+}
