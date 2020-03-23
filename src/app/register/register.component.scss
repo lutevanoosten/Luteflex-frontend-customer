@@ -1,0 +1,97 @@
+.topbar{
+  height: 100px;
+  border-bottom: 1px solid lightgray;
+  img{
+    float: left;
+    width: 13%;
+    margin: 20px 0 0 50px;
+  }
+  h5{
+    float: right;
+    margin: 35px 40px 0 0;
+    cursor: pointer;
+  }
+  h5:hover{
+    text-decoration: underline;
+  }
+}
+
+.welcomemodal{
+  width: 300px;
+  margin: auto;
+  padding-top: 50px;
+  text-align: center;
+  .check:before{
+    content: '✓';
+    margin-right: 5px;
+    color: red;
+    font-size: 25px;
+  }
+  p{
+    font-size: 20px;
+  }
+  button{
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: -10%;
+    width: 120%;
+    border: none;
+    border-radius: 5px;
+  }
+  span{
+    color: red;
+    font-size: 50px;
+    border: 2px solid red;
+    padding: 0 15px 0 15px;
+    border-radius: 100px;
+  }
+}
+
+.packselection{
+  width: 80%;
+  margin: auto;
+
+  table{
+    width: 100%;
+
+    button{
+      width: 80%;
+      height: 100px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: red;
+      text-align: center;
+      position:relative;
+      margin-bottom: 15px;
+      margin-left: 10%;
+    }
+
+    button:after {
+      content:'';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -10px;
+      width: 0;
+      height: 0;
+      border-top: solid 10px red;
+      border-left: solid 10px transparent;
+      border-right: solid 10px transparent;
+    }
+
+    td{
+      text-align: center;
+    }
+    .lefttext{
+      text-align: left !important;
+    }
+    
+    .package{
+      width: 125px;
+    }
+  }
+
+}
