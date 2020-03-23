@@ -1,3 +1,16 @@
+button:focus {outline:0;}
+
+.nextbtn{
+  background-color: red;
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+  margin-left: -10%;
+  width: 120%;
+  border: none;
+  border-radius: 5px;
+  max-width: 400px;
+}
 .topbar{
   height: 100px;
   border-bottom: 1px solid lightgray;
@@ -30,16 +43,7 @@
   p{
     font-size: 20px;
   }
-  button{
-    background-color: red;
-    color: white;
-    padding: 10px;
-    margin-top: 20px;
-    margin-left: -10%;
-    width: 120%;
-    border: none;
-    border-radius: 5px;
-  }
+
   span{
     color: red;
     font-size: 50px;
@@ -61,12 +65,13 @@
       height: 100px;
       border: none;
       border-radius: 5px;
-      color: white;
+      color: white !important;
       background-color: red;
       text-align: center;
       position:relative;
       margin-bottom: 15px;
       margin-left: 10%;
+      opacity: 0.6;
     }
 
     button:after {
@@ -84,13 +89,36 @@
 
     td{
       text-align: center;
+      padding: 15px;
+      font-size: 20px;
+      border-top: 1px solid lightgray;
     }
+
     .lefttext{
       text-align: left !important;
     }
-    
+
     .package{
       width: 125px;
+    }
+
+    .basic{
+      color: #000;
+      opacity: 0.6;
+    }
+    .premium{
+      color: #000;
+      opacity: 0.6;
+    }
+    .luxury{
+      color: #000;
+      opacity: 0.6;
+    }
+
+    .selected{
+      font-weight: bold;
+      color: red;
+      opacity: 1;
     }
   }
 
