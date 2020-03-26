@@ -2,17 +2,17 @@
   <img src="../../assets/images/home/logotrans.png" alt="Luteflex logo">
   <h5 routerLink="/login">Inloggen</h5>
 </div>
-<div class="welcomemodal">
+<div class="welcomemodal mb-5  mt-4" *ngIf="stepOne">
   <span>✓</span>
   <p>STAP 1 VAN 3</p>
   <h3>Kies je abbonement.</h3>
   <p class="check">Geen verplichtingen, altijd opzegbaar.</p>
-  <p class="check">Alles op Netflix voor één lage prijs.</p>
+  <p class="check">Alles op Luteflex voor één lage prijs.</p>
   <p class="check">Onbeperkt kijken op al je apparaten.</p>
-  <button class="nextbtn">BEKIJK DE ABONNEMENTEN</button>
+  <button class="nextbtn" (click)="nextmodal()">BEKIJK DE ABONNEMENTEN</button>
 </div>
 
-<div class="packselection mb-5">
+<div class="packselection mb-5  mt-4" *ngIf="stepTwo">
   <p class="small">STAP 1 VAN 3</p>
   <h3>Kies het abonnement dat bij je past.</h3>
   <p>Downgrade of upgrade wanneer je wilt.</p>
@@ -69,19 +69,19 @@
 
   </table>
   <p class="small mt-3 text-muted">Beschikbaarheid van HD en Ultra HD is onderworpen aan je internetprovider en de mogelijkheden van het apparaat. Niet alle content is beschikbaar in HD of Ultra HD.</p>
-  <button class="nextbtn m-auto">DOORGAAN</button>
+  <button class="nextbtn m-auto" (click)="nextmodal()">DOORGAAN</button>
 
 </div>
 
-<div class="welcomemodal">
+<div class="welcomemodal mb-5  mt-4" *ngIf="stepThree">
   <img src="../../assets/images/home/devices.PNG">
   <p>STAP 2 VAN 3</p>
   <h3>Voltooi het instellen van je account.</h3>
   <p>Luteflex is gepersonaliseerd voor jou. Maak een wachtwoord aan om Luteflex altijd en overal te kunnen kijken op elk apparaat.</p>
-  <button class="nextbtn">DOORGAAN</button>
+  <button class="nextbtn" (click)="nextmodal()">DOORGAAN</button>
 </div>
 
-<div class="passwordcreation">
+<div class="passwordcreation mb-5  mt-4" *ngIf="stepFour">
   <p class="small">STAP 2 VAN 3</p>
   <h3>Verzin een wachtwoord om je lidmaatschap te starten.</h3>
   <p>Nog twee stappen en je bent klaar!
@@ -93,6 +93,18 @@
     <input type="checkbox" id="subscribe" name="subscribe"
            checked>
     <label for="subscribe" class="ml-1"> Nee, ik wil geen updates ontvangen.</label>
-    <button class="nextbtn m-auto">DOORGAAN</button>
+    <button class="nextbtn m-auto" (click)="nextmodal()">DOORGAAN</button>
   </form>
+</div>
+
+<div class="welcomemodal mb-5  mt-4" *ngIf="stepFive">
+  <span><i class="fas fa-money-check-alt"></i></span>
+  <p>STAP 3 VAN 3</p>
+  <h3>Stel je betaling in.</h3>
+  <p>Je lidmaatschap begint zodra je je betaling hebt ingesteld.</p>
+  <p><b>Geen verplichtingen. Zeg online op wanneer je maar wilt.</b></p>
+  <p class="check">Onbeperkt kijken op al je apparaten.</p>
+  <button class="nextbtn" routerLink="/watch">BEKIJK HET AANBOD</button>
+
+
 </div>

@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { MovieterminalComponent } from './movieterminal/movieterminal.component';
 
 
 
@@ -18,7 +19,8 @@ import { RegisterComponent } from './register/register.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MovieterminalComponent
   ],
   imports: [
     BrowserModule,
