@@ -21,31 +21,39 @@
 </div>
 
 <span id="blur" class="blurry" (click)="closeNav()"></span>
+<div id="moviemodal" (click)="hideDetails()" >
+  <div (click)="$event.stopPropagation()">
+
+  </div>
+</div>
 
 <div id="main">
   <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; <img src="../../assets/images/home/logotrans.png"></span>
 
-  <div class="genrerow firstrow">
-    <button id="slideLeft" type="button" (click)="btnLeft()" class="left"><i class="fas fa-chevron-left"></i></button>
-    <div id="container">
-      <div id="content">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-        <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+  <div class="movieshome">
+    <div class="genrerow firstrow" *ngFor="let number of ['0','1','2','3','4']">
+      <button type="button" (click)="btnLeft(number)" class="left"><i class="fas fa-chevron-left"></i></button>
+      <div id="{{number}}" class="cont">
+        <div class="content" >
+          <img (click)="showDetails()" src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+        </div>
       </div>
+      <button type="button" (click)="btnRight(number)" class="right"><i class="fas fa-chevron-right"></i></button>
     </div>
-    <button id="slideRight" type="button" (click)="btnRight()" class="right"><i class="fas fa-chevron-right"></i></button>
   </div>
 </div>
+

@@ -28,10 +28,18 @@ export class MovieterminalComponent implements OnInit {
     document.body.style.backgroundColor = 'white';
   }
 
-  btnRight(): void {
-    document.getElementById('container').scrollTo({ left: (document.getElementById('container').scrollLeft + 400), behavior: 'smooth' });
+  btnRight(row: string): void {
+    document.getElementById(row).scrollTo({ left: (document.getElementById(row).scrollLeft + 400), behavior: 'smooth' });
+    console.log(row);
   }
-  btnLeft(): void {
-    document.getElementById('container').scrollTo({ left: (document.getElementById('container').scrollLeft - 400), behavior: 'smooth' });
+  btnLeft(row: string): void {
+    document.getElementById(row).scrollTo({ left: (document.getElementById(row).scrollLeft - 400), behavior: 'smooth' });
+  }
+
+  showDetails(): void {
+    document.getElementById('moviemodal').style.display = 'block';
+  }
+  hideDetails(): void {
+    document.getElementById('moviemodal').style.display = 'none';
   }
 }
