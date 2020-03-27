@@ -22,8 +22,15 @@
 
 <span id="blur" class="blurry" (click)="closeNav()"></span>
 <div id="moviemodal" (click)="hideDetails()" >
-  <div (click)="$event.stopPropagation()">
+  <div (click)="$event.stopPropagation()" class="innermodal">
+    <div class="imgcontainer">
+      <img src="https://steamuserimages-a.akamaihd.net/ugc/848217711979376646/9C8E4E286705EEE8FA93BEDE57758C28915570BE/" alt="Snow" style="width:100%">
+      <span><i class="fas fa-play"></i></span>
+    </div>
+    <h1>Dikke BMW Jongens II</h1>
 
+    <p class="descriprion">F9 is een nog te verschijnen Amerikaanse actiefilm, geregisseerd door Justin Lin en geschreven door Daniel Casey. Een vervolg op The Fate of the Furious uit 2017, het zal de negende hoofdrol zijn in de Fast & Furious-franchise en de tiende langspeelfilm die in het algemeen wordt uitgebracht.</p>
+    <p class="cast">Cast: Vin Diesel, Justin Lin, Clayton Townsend, Neal H. Moritz</p>
   </div>
 </div>
 
@@ -32,8 +39,10 @@
 
   <div class="movieshome">
     <div class="genrerow firstrow" *ngFor="let number of ['0','1','2','3','4']">
+      <p>Genre</p>
       <button type="button" (click)="btnLeft(number)" class="left"><i class="fas fa-chevron-left"></i></button>
       <div id="{{number}}" class="cont">
+
         <div class="content" >
           <img (click)="showDetails()" src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
           <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
