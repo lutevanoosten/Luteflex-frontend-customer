@@ -220,20 +220,44 @@ margin-top: 40vw;
         color: #101010;
       }
     }
-    h1{
+    h2{
       color: white;
-      position: absolute;
-      margin-top: -30px;
-      z-index: 100;
       margin-left: 15px;
       text-shadow: black 0 0 10px;
-      background-color: #101010;
       padding: 20px;
       border-radius: 5px;
     }
+    .rating{
+      display: flex;
+      .progress{
+        width: 70%;
+        margin: auto;
+      }
+      i{
+        font-size: 30px;
+        color: white;
+        padding-left: 60px;
+        padding-right: 60px;
+        cursor: pointer;
+      }
+      .fa-thumbs-up:hover{
+        color: lime;
+      }
+      .fa-thumbs-down:hover{
+        color: red;
+      }
+      p{
+
+        margin-top: 14px;
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+      }
+    }
+
     .descriprion{
       color: white;
-      margin-top: 80px;
+      margin-top: 10px;
       margin-left: 35px;
       margin-right: 35px;
       font-size: 20px;
