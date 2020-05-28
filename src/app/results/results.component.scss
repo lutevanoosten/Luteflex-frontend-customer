@@ -1,0 +1,31 @@
+.maindiv{
+  background-color: black;
+  min-height: 100vh;
+
+  h2{
+    padding: 10px;
+    color: white;
+  }
+  img{
+    height: 230px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform .2s;
+  }
+  img:hover{
+    transform: scale(1.1);
+  }
+
+  span{
+    color: red;
+    padding: 10px;
+    font-size: 35px;
+    cursor: pointer;
+    transition: .2s;
+  }
+  span:hover{
+    padding-left: 30px;
+  }
+}
+
+

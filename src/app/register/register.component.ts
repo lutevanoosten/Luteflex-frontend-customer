@@ -13,6 +13,13 @@ export class RegisterComponent implements OnInit {
   stepFour = false;
   stepFive = false;
 
+  email: string = sessionStorage.getItem('email');
+  package: string;
+  password: string;
+
+  wrongpw = false;
+  shortpw = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,6 +27,7 @@ export class RegisterComponent implements OnInit {
 
   packageselected(pack: string): void {
     let j;
+    this.package = pack;
 
     const deselect = document.getElementsByClassName('selected');
     while (deselect.length) {
@@ -43,10 +51,15 @@ export class RegisterComponent implements OnInit {
       this.stepThree = false;
       this.stepFour = true;
     } else if (this.stepFour) {
-      this.stepFour = false;
-      this.stepFive = true;
+      if (( document.getElementById('pw') as HTMLInputElement).value !==
+        ( document.getElementById('pw_repeat') as HTMLInputElement).value) {
+        alert('De wachtwoorden komen niet overeen.');
+      } else if ( (document.getElementById('pw') as HTMLInputElement).value.length < 5) {
+        alert('Het wachtwoord moet minimaal 5 karakters lang zijn.');
+      } else {
+        this.stepFour = false;
+        this.stepFive = true;
+      }
     }
-
   }
-
 }

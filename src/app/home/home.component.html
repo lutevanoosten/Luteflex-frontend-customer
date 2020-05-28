@@ -2,12 +2,13 @@
   <div class="headsection">
     <img src="../../assets/images/home/logotrans.png" alt="Luteflex logo">
     <button class="loginbtn" routerLink="login">Inloggen</button>
+    <p>{{testmessage.toString()}}</p>
 
     <div>
       <h1>Onbeperkt series, films en meer kijken.</h1>
       <h3>Kijk waar je wilt. Altijd opzegbaar.</h3>
-      <input type="email" placeholder="E-mailadres">
-      <button>PROBEER NU</button>
+      <input #email type="email" placeholder="E-mailadres">
+      <button (click)="register(email.value)">PROBEER NU</button>
       <p>Klaar om te kijken? Voer je e-mailadres in om je account te maken of te openen.</p>
     </div>
   </div>
@@ -99,3 +100,6 @@
     </div>
   </div>
 </div>
+
+
+
