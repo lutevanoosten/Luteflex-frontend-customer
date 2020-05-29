@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../models/user';
+import {AccountService} from '../services/account/account.service';
 
 @Component({
   selector: 'app-register',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  accountService = new AccountService();
 
   stepOne = true;
   stepTwo = false;
@@ -16,9 +20,6 @@ export class RegisterComponent implements OnInit {
   email: string = sessionStorage.getItem('email');
   package: string;
   password: string;
-
-  wrongpw = false;
-  shortpw = false;
 
   constructor() { }
 
@@ -50,16 +51,31 @@ export class RegisterComponent implements OnInit {
     } else if (this.stepThree) {
       this.stepThree = false;
       this.stepFour = true;
-    } else if (this.stepFour) {
-      if (( document.getElementById('pw') as HTMLInputElement).value !==
-        ( document.getElementById('pw_repeat') as HTMLInputElement).value) {
-        alert('De wachtwoorden komen niet overeen.');
-      } else if ( (document.getElementById('pw') as HTMLInputElement).value.length < 5) {
-        alert('Het wachtwoord moet minimaal 5 karakters lang zijn.');
-      } else {
+    }
+  }
+  checkPassword(pw: string, pwRepeat: string): void{
+    if (pw !== pwRepeat) {
+      alert('De wachtwoorden komen niet overeen.');
+    } else if (pw.length < 5) {
+      alert('Het wachtwoord moet minimaal 5 karakters lang zijn.');
+    } else {
+      this.password = pw;
+      if(this.createAccount()){
         this.stepFour = false;
         this.stepFive = true;
+      } else {
+        alert('Er is een fout opgetreden, probeer het later opnieuw of neem contact op met Luteflex.');
       }
+    }
+  }
+
+  createAccount(): boolean {
+    const jwt = this.accountService.register(new User(this.email, this.password, 'someavatar.png', 'lute', this.package)).toString();
+    if (jwt.length > 10) {
+      localStorage.setItem('JWT', jwt);
+      return true;
+    } else {
+      return false;
     }
   }
 }
