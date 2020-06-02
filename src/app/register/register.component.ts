@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
   email: string = sessionStorage.getItem('email');
   package: string;
   password: string;
+  username: string;
 
   constructor() { }
 
@@ -53,29 +54,36 @@ export class RegisterComponent implements OnInit {
       this.stepFour = true;
     }
   }
-  checkPassword(pw: string, pwRepeat: string): void{
+  async checkPassword(pw: string, pwRepeat: string, name: string): Promise<any> {
     if (pw !== pwRepeat) {
       alert('De wachtwoorden komen niet overeen.');
     } else if (pw.length < 5) {
       alert('Het wachtwoord moet minimaal 5 karakters lang zijn.');
     } else {
       this.password = pw;
-      if(this.createAccount()){
-        this.stepFour = false;
-        this.stepFive = true;
-      } else {
-        alert('Er is een fout opgetreden, probeer het later opnieuw of neem contact op met Luteflex.');
-      }
+      this.username = name;
+      await this.createAccount().then((response) => {
+        console.log(response)
+        if (response) {
+          this.stepFour = false;
+
+          this.stepFive = true;
+        } else {
+          alert('Er is een fout opgetreden, probeer het later opnieuw of neem contact op met Luteflex.');
+        }
+      });
     }
   }
 
-  createAccount(): boolean {
-    const jwt = this.accountService.register(new User(this.email, this.password, 'someavatar.png', 'lute', this.package)).toString();
-    if (jwt.length > 10) {
-      localStorage.setItem('JWT', jwt);
-      return true;
-    } else {
-      return false;
-    }
+  async createAccount(): Promise<boolean> {
+    return this.accountService.register(new User(this.email, this.password, 'av1.png', this.username, this.package))
+      .then((response) => {
+        if (response.length > 10) {
+          localStorage.setItem('JWT', response);
+          return true;
+        } else {
+          return false;
+        }
+    });
   }
 }

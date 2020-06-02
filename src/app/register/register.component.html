@@ -83,17 +83,18 @@
 
 <div class="passwordcreation mb-5  mt-4" *ngIf="stepFour">
   <p class="small">STAP 2 VAN 3</p>
-  <h3>Verzin een wachtwoord om je lidmaatschap te starten.</h3>
+  <h3>Verzin een wachtwoord om je lidmaatschap te starten. En voeg een gebruikersnaam toe.</h3>
   <p>Nog twee stappen en je bent klaar!
     We houden ook niet van te veel administratie.</p>
 
   <form >
+    <input #name type="text" placeholder="Voeg een gebruikersnaam toe">
     <input #pw type="password" placeholder="Voeg een wachtwoord toe">
     <input #pwRepeat type="password" placeholder="Herhaal het wachtwoord">
 
 
   </form>
-  <button class="nextbtn m-auto w-100 mw-100" (click)="checkPassword(pw.value, pwRepeat.value)">DOORGAAN</button>
+  <button class="nextbtn m-auto w-100 mw-100" (click)="checkPassword(pw.value, pwRepeat.value, name.value)">DOORGAAN</button>
 </div>
 
 <div class="welcomemodal mb-5  mt-4" *ngIf="stepFive">

@@ -11,17 +11,18 @@ export class AccountService {
 
   constructor() { }
 
-  signIn(): Promise<string> {
-    return axios.get(this.endpoint + 'user')
+  async signIn(user: User): Promise<string> {
+    return axios.post(this.endpoint + 'user/login', user)
       .then((response) => {
         console.log(response.data);
         return response.data;
       });
   }
-  register(user: User): Promise<string> {
-    return axios.post(this.endpoint + 'user', user)
+  async register(user: User): Promise<string> {
+    return axios.post(this.endpoint + 'user/register', user)
       .then((response) => {
         console.log(response.data);
+        localStorage.setItem('JWTass', response.data);
         return response.data;
       });
   }
