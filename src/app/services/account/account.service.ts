@@ -22,7 +22,6 @@ export class AccountService {
     return axios.post(this.endpoint + 'user/register', user)
       .then((response) => {
         console.log(response.data);
-        localStorage.setItem('JWTass', response.data);
         return response.data;
       });
   }

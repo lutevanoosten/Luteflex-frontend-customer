@@ -6,6 +6,7 @@ import {RegisterComponent} from './register/register.component';
 import {MovieterminalComponent} from './movieterminal/movieterminal.component';
 import {AccountsComponent} from './accounts/accounts.component';
 import {ResultsComponent} from './results/results.component';
+import {AdmindashComponent} from './admindash/admindash.component';
 
 
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'newuser', component: RegisterComponent },
   { path: 'watch', component: MovieterminalComponent },
   { path: 'users', component: AccountsComponent },
-  { path: 'result', component: ResultsComponent }
+  { path: 'result', component: ResultsComponent },
+  { path: 'admin-dashboard', component: AdmindashComponent }
 ];
 
 @NgModule({

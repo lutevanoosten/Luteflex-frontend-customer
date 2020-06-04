@@ -9,8 +9,6 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   constructor(private accountService: AccountService, private router: Router) { }
-
-  testmessage = 'hello there assfag';
   emailInUse = false;
 
   ngOnInit(): void {

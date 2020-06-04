@@ -87,14 +87,18 @@
   <p>Nog twee stappen en je bent klaar!
     We houden ook niet van te veel administratie.</p>
 
-  <form >
+  <form>
+
     <input #name type="text" placeholder="Voeg een gebruikersnaam toe">
     <input #pw type="password" placeholder="Voeg een wachtwoord toe">
     <input #pwRepeat type="password" placeholder="Herhaal het wachtwoord">
-
-
   </form>
   <button class="nextbtn m-auto w-100 mw-100" (click)="checkPassword(pw.value, pwRepeat.value, name.value)">DOORGAAN</button>
+  <div class="text-center mt-2" *ngIf="loading">
+    <div class="spinner-border" role="status" >
+    </div>
+  </div>
+
 </div>
 
 <div class="welcomemodal mb-5  mt-4" *ngIf="stepFive">

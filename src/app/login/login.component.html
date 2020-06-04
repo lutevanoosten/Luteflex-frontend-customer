@@ -3,13 +3,16 @@
   <div class="loginmodal">
     <h2>Inloggen</h2>
     <form>
-      <input class="logininput mt-5" type="email" placeholder="E-mailadres">
-      <input class="logininput mt-3" type="password" placeholder="Wachtwoord">
-      <button>Inloggen</button>
-      <input type="checkbox" id="rememberme" name="rememberme"
-             checked>
-      <label for="rememberme" class="ml-1"> Mijn gegevens onthouden</label>
+      <input #email class="logininput mt-5" type="email" placeholder="E-mailadres">
+      <input #password class="logininput mt-3" type="password" placeholder="Wachtwoord">
+
+      <div class="text-center mt-2" *ngIf="loading">
+        <div class="spinner-border" role="status" >
+        </div>
+      </div>
+
       <p>Is Luteflex nieuw voor jou? <span routerLink="">Registreer je nu.</span></p>
     </form>
+    <button (click)="signIn(email.value, password.value)">Inloggen</button>
   </div>
 </div>

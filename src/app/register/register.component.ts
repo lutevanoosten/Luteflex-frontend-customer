@@ -22,6 +22,8 @@ export class RegisterComponent implements OnInit {
   password: string;
   username: string;
 
+  loading = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -76,6 +78,7 @@ export class RegisterComponent implements OnInit {
   }
 
   async createAccount(): Promise<boolean> {
+    this.loading = true;
     return this.accountService.register(new User(this.email, this.password, 'av1.png', this.username, this.package))
       .then((response) => {
         if (response.length > 10) {

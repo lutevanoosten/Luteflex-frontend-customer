@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { MovieterminalComponent } from './movieterminal/movieterminal.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { ResultsComponent } from './results/results.component';
+import { AdmindashComponent } from './admindash/admindash.component';
 
 
 
@@ -24,7 +25,8 @@ import { ResultsComponent } from './results/results.component';
     RegisterComponent,
     MovieterminalComponent,
     AccountsComponent,
-    ResultsComponent
+    ResultsComponent,
+    AdmindashComponent
   ],
   imports: [
     BrowserModule,
