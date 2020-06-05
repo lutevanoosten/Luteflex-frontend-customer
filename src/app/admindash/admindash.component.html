@@ -1,7 +1,6 @@
 
 
-<form class="w-50 m-auto" (ngSubmit)="onSubmit(titel.value, genre.value, beschrijving.value, cast.value,
-regiseur.value, poster.value, movie.value, leeftijdbeperking.value,uitgevenjaar.value)">
+<form class="w-50 m-auto">
   <h3 class="input-group p-2 mt-2">Admin dashboard</h3>
   <p class="input-group pl-2">Film toevoegen aan aanbod</p>
   <input class="input-group p-2 mt-2" type="text" placeholder="titel" #titel required>
@@ -15,7 +14,18 @@ regiseur.value, poster.value, movie.value, leeftijdbeperking.value,uitgevenjaar.
   <input class="input-group p-2 mt-2" type="text" placeholder="movie url" #movie required>
   <input class="input-group p-2 mt-2" type="number" placeholder="leeftijdbeperking" #leeftijdbeperking required>
   <input class="input-group p-2 mt-2 mb-2" type="number" placeholder="uitgevenjaar" #uitgevenjaar required>
-  <button class="p-2" type="submit">Uploaden</button>
+
 </form>
+<div class="buttonholder">
+  <button class="p-2" (click)="uploadFilm(titel.value, genre.value, beschrijving.value, cast.value,
+regiseur.value, poster.value, movie.value, leeftijdbeperking.value,uitgevenjaar.value)">Uploaden</button>
+</div>
+
+<div>
+  <table *ngFor="let movie of movieList">
+    <tr><td>{{movie.titel}}</td><td>{{movie.uitgevenjaar}}</td><td>{{movie.regiseur}}</td><td><button class="editbtn" (click)="removeMovie(movie)">remove</button></td></tr>
+
+  </table>
+</div>
 
 

@@ -24,7 +24,7 @@
 <div id="moviemodal" (click)="hideDetails()" >
   <div (click)="$event.stopPropagation()" class="innermodal">
     <div class="imgcontainer">
-      <img src="https://steamuserimages-a.akamaihd.net/ugc/848217711979376646/9C8E4E286705EEE8FA93BEDE57758C28915570BE/" alt="Snow" style="width:100%">
+      <img src="https://images3.alphacoders.com/103/1033660.jpg" alt="Snow" style="width:100%">
       <span><i class="fas fa-play"></i></span>
     </div>
     <h2>Dikke BMW Jongens II</h2>
@@ -49,30 +49,17 @@
   <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; <img src="../../assets/images/home/logotrans.png"></span>
 
   <div class="movieshome">
-    <div class="genrerow firstrow" *ngFor="let number of ['0','1','2','3','4']">
-      <p>Genre</p>
-      <button type="button" (click)="btnLeft(number)" class="left"><i class="fas fa-chevron-left"></i></button>
-      <div id="{{number}}" class="cont">
+    <div class="genrerow firstrow" *ngFor="let genre of genreList">
+      <p>{{genre}}</p>
+      <button type="button" (click)="btnLeft(genre)" class="left"><i class="fas fa-chevron-left"></i></button>
+      <div id="{{genre}}" class="cont">
 
-        <div class="content" >
-          <img (click)="showDetails()" src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
-          <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+        <div class="content" *ngFor="let movie of movieList" >
+          <img (click)="showDetails(movie)" src="{{movie.poster}}" alt="poster" *ngIf="movie.genre == genre">
+
         </div>
       </div>
-      <button type="button" (click)="btnRight(number)" class="right"><i class="fas fa-chevron-right"></i></button>
+      <button type="button" (click)="btnRight(genre)" class="right"><i class="fas fa-chevron-right"></i></button>
     </div>
   </div>
 </div>

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {style} from '@angular/animations';
 import {$} from 'protractor';
+import {Movie} from '../models/movie';
+import {MovieService} from '../services/movie/movie.service';
 
 @Component({
   selector: 'app-movieterminal',
@@ -8,9 +10,28 @@ import {$} from 'protractor';
   styleUrls: ['./movieterminal.component.scss']
 })
 export class MovieterminalComponent implements OnInit {
+
+  movieService = new MovieService();
+  movieList: Movie[] = [];
+  genreList: string[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+
+    this.movieService.getMovies()
+      .then(movies => {
+        for (const movie of movies) {
+          if (!this.genreList.includes(movie.genre)) {
+            this.genreList.push(movie.genre);
+            console.log('what');
+          }
+          console.log('what2');
+        }
+        console.log('what3');
+        this.movieList = movies;
+      });
+
 
   }
 
@@ -36,10 +57,14 @@ export class MovieterminalComponent implements OnInit {
     document.getElementById(row).scrollTo({ left: (document.getElementById(row).scrollLeft - 400), behavior: 'smooth' });
   }
 
-  showDetails(): void {
+  showDetails(movie: Movie): void {
     document.getElementById('moviemodal').style.display = 'block';
   }
   hideDetails(): void {
     document.getElementById('moviemodal').style.display = 'none';
+  }
+
+  searchMovies(keyword: string): void {
+    this.movieService.searchMovies(keyword);
   }
 }

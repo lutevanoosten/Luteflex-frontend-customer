@@ -10,10 +10,37 @@ export class MovieService {
 
   endpoint = 'http://localhost:8101//';
 
+  movieList: Array<Movie> = [];
+
   constructor() { }
 
   async uploadMovie(movie: Movie): Promise<boolean> {
     return axios.post(this.endpoint + 'movie/upload', movie)
+      .then((response) => {
+        console.log(response.data);
+        return response.data;
+      });
+  }
+
+  getMovies() {
+    return axios.get<Array<Movie>>(this.endpoint + 'movie/get')
+      .then((dat) => {
+        this.movieList = dat.data;
+        return this.movieList;
+      });
+  }
+
+  async searchMovies(keyword: string): Promise<boolean> {
+    return axios.get(this.endpoint + 'movie/search/' + keyword)
+      .then((response) => {
+        console.log(response.data);
+        return response.data;
+      });
+  }
+
+  async deleteMovie(id: number): Promise<boolean> {
+    console.log('eyyyy delete that');
+    return axios.delete(this.endpoint + 'movie/delete/' + id)
       .then((response) => {
         console.log(response.data);
         return response.data;
