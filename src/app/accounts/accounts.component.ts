@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Personalization} from '../models/personalization';
 
 @Component({
   selector: 'app-accounts',
@@ -9,6 +10,8 @@ export class AccountsComponent implements OnInit {
 
   avatarchosen = false;
   chosenavatar = 1;
+  subaccounts: Personalization[] = [];
+  editing = false;
 
   constructor() { }
 
@@ -29,6 +32,19 @@ export class AccountsComponent implements OnInit {
   }
   hideNewUser(): void {
     document.getElementById('newusermodal').style.display = 'none';
+  }
+
+  editaccount(): void {
+    this.editing = true;
+    this.showNewUser();
+  }
+
+  createUser(name: string): void {
+    if (this.editing) {
+      // edit
+    } else {
+      // new
+    }
   }
 
 }

@@ -19,13 +19,126 @@
   span{
     color: red;
     padding: 10px;
-    font-size: 35px;
+    font-size: 25px;
     cursor: pointer;
     transition: .2s;
   }
   span:hover{
-    padding-left: 30px;
+    padding-left: 20px;
   }
 }
 
+
+#moviemodal{
+  width: 100%;
+  height:100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: none;
+  z-index: 10;
+  .innermodal{
+    width: 100%;
+    max-width: 650px;
+    height: calc(100vh - 30px);
+    background-color: #202020;
+    margin: 30px auto auto;
+    overflow-y: scroll;
+
+    .imgcontainer {
+      position: relative;
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+      span{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        color: #707070;
+        font-size: 60px;
+        cursor: pointer;
+      }
+      span:hover {
+        color: #101010;
+      }
+    }
+    h2{
+      color: white;
+      margin-left: 15px;
+      text-shadow: black 0 0 10px;
+      padding: 20px 20px 5px;
+      border-radius: 5px;
+    }
+    .rating{
+      display: flex;
+      .progress{
+        width: 70%;
+        margin: auto;
+      }
+      i{
+        font-size: 20px;
+        color: white;
+        padding-left: 60px;
+        padding-right: 60px;
+        cursor: pointer;
+      }
+      .fa-thumbs-up:hover{
+        color: lime;
+      }
+      .fa-thumbs-down:hover{
+        color: red;
+      }
+      p{
+
+        margin-top: 14px;
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+      }
+    }
+
+    .descriprion{
+      color: white;
+      margin-top: 10px;
+      margin-left: 35px;
+      margin-right: 35px;
+      font-size: 15px;
+    }
+    .cast{
+      color: darkgray;
+      margin-left: 35px;
+      margin-right: 35px;
+      font-size: 15px;
+    }
+  }
+}
+
+.infobar{
+  color: lightgray;
+  margin-left: 17px;
+  span{
+    margin-left: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: solid 1px lightgray;
+    border-radius: 2px;
+
+  }
+}
+
+.extracol {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.extrarow::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 

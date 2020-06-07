@@ -3,6 +3,7 @@ import {style} from '@angular/animations';
 import {$} from 'protractor';
 import {Movie} from '../models/movie';
 import {MovieService} from '../services/movie/movie.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-movieterminal',
@@ -14,8 +15,9 @@ export class MovieterminalComponent implements OnInit {
   movieService = new MovieService();
   movieList: Movie[] = [];
   genreList: string[] = [];
+  selectedMovie: Movie;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
@@ -58,13 +60,22 @@ export class MovieterminalComponent implements OnInit {
   }
 
   showDetails(movie: Movie): void {
+    this.selectedMovie = movie;
     document.getElementById('moviemodal').style.display = 'block';
+    document.getElementById('innermodal').scrollTo({ top: (document.getElementById('innermodal').scrollTop = 0), behavior: 'smooth' });
   }
   hideDetails(): void {
     document.getElementById('moviemodal').style.display = 'none';
   }
 
+  playvideo(): void {
+  document.getElementById('videoplayer').requestFullscreen();
+  document.getElementById('videoplayer')[0].play();
+}
+
   searchMovies(keyword: string): void {
-    this.movieService.searchMovies(keyword);
+    if (keyword.length > 0) {
+      this.router.navigate(['/search', keyword]);
+    }
   }
 }

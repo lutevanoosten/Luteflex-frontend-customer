@@ -1,8 +1,12 @@
-
 <div class="maindiv">
+  <h2 style="position: fixed; width: 100%; text-align: center">Kies een profiel of maak een profiel aan</h2>
   <div class="user">
     <img src="../../assets/images/avatar/av1.png" alt="avatar">
     <p>De Minipoes</p>
+  </div>
+  <div class="user" *ngFor="let account of subaccounts">
+    <img src="{{account.avatar}}" alt="avatar">
+    <p>{{account.name}}</p>
   </div>
 
   <div class="user" (click)="showNewUser()">
@@ -17,8 +21,9 @@
         <img *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" (click)="chooseAvatar(number)" src="../../assets/images/avatar/av{{number}}.png">
       </div>
       <img (click)="cancelAvatar()" class="chosenAvatar" *ngIf="avatarchosen" src="../../assets/images/avatar/av{{chosenavatar}}.png">
-      <input type="text" placeholder="Kies een naam">
-      <button>Aanmaken</button>
+      <input #name type="text" placeholder="Kies een naam">
+      <button *ngIf="!editing" (click)="createUser(name.value)">Aanmaken</button>
+      <button *ngIf="editing">Opslaan</button>
     </form>
   </div>
 

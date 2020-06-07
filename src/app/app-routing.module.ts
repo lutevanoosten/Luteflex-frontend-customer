@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'newuser', component: RegisterComponent },
   { path: 'watch', component: MovieterminalComponent },
   { path: 'users', component: AccountsComponent },
-  { path: 'result', component: ResultsComponent },
+  { path: 'search/:keyword', component: ResultsComponent },
   { path: 'admin-dashboard', component: AdmindashComponent }
 ];
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {MovieService} from '../services/movie/movie.service';
+import {Movie} from '../models/movie';
 
 @Component({
   selector: 'app-results',
@@ -7,23 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  movieService = new MovieService();
+  movieList: Movie[] = [];
+  selectedMovie: Movie;
+  keyword: string;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.keyword = this.route.snapshot.paramMap.get('keyword');
+    this.movieService.searchMovies(this.keyword)
+      .then(movies => {
+        this.movieList = movies;
+      });
   }
 
-  openNav(): void {
-    document.getElementById('mySidenav').style.width = '275px';
-    document.getElementById('main').style.marginLeft = '275px';
-    document.getElementById('blur').style.width = '100%';
-    document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
+  showDetails(movie: Movie): void {
+    this.selectedMovie = movie;
+    document.getElementById('moviemodal').style.display = 'block';
+    document.getElementById('innermodal').scrollTo({ top: (document.getElementById('innermodal').scrollTop = 0), behavior: 'smooth' });
+  }
+  hideDetails(): void {
+    document.getElementById('moviemodal').style.display = 'none';
   }
 
-  closeNav(): void {
-    document.getElementById('mySidenav').style.width = '0';
-    document.getElementById('main').style.marginLeft = '0';
-    document.getElementById('blur').style.width = '0';
-    document.body.style.backgroundColor = 'white';
+  playvideo(): void {
+    document.getElementById('videoplayer').requestFullscreen();
+    document.getElementById('videoplayer')[0].play();
   }
 
 }

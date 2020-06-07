@@ -1,8 +1,47 @@
+<div id="moviemodal" (click)="hideDetails()" >
+  <div (click)="$event.stopPropagation()" class="innermodal" id="innermodal" >
+    <div class="imgcontainer">
+      <video #videoplayer id="videoplayer" src="{{selectedMovie.film}}" style="width:100%; object-fit: cover" *ngIf="selectedMovie != null"></video>
+      <span><i class="fas fa-play" (click)="playvideo()"></i></span>
+    </div>
+
+
+    <h2 *ngIf="selectedMovie != null">{{selectedMovie.titel}}</h2>
+    <div class="infobar">
+      <p *ngIf="selectedMovie != null" class="infobar">{{selectedMovie.uitgevenjaar}}   <span> {{selectedMovie.leeftijdbeperking}} </span>    </p>
+    </div>
+    <div class="rating">
+      <i class="far fa-thumbs-up"></i>
+      <div class="progress">
+        <div  *ngIf="selectedMovie != null" class="progress-bar" role="progressbar" aria-valuenow="70"
+              aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+        </div>
+      </div>
+      <i class="far fa-thumbs-down"></i>
+    </div>
+
+    <p class="descriprion" *ngIf="selectedMovie != null">{{selectedMovie.beschrijving}}</p>
+    <p class="cast" *ngIf="selectedMovie != null">Cast: {{selectedMovie.cast}}</p>
+    <p class="cast" *ngIf="selectedMovie != null">Regiseur: {{selectedMovie.regiseur}}</p>
+
+    <div class="extrarow" >
+      <div class="extracol" *ngFor="let extra of movieList">
+        <img src="{{extra.poster}}" alt="movieThumb" (click)="showDetails(extra)" style="width:100%">
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
 <div class="maindiv">
-  <span routerLink="/watch"><i class="fas fa-arrow-left"></i> Terug</span>
+  <span routerLink="/users"><i class="fas fa-arrow-left"></i> Terug</span>
 
-  <h2>Genre / zoekresultaat</h2>
-  <img src="../../assets/images/poster/32590_123652_ps_sd-high.jpg" alt="poster">
+  <h2 *ngIf="keyword != null">Genre / zoekresultaat "{{keyword}}"</h2>
+  <div *ngIf="movieList != null">
+    <img *ngFor="let movie of movieList" src="{{movie.poster}}" alt="poster" (click)="showDetails(movie)">
+  </div>
+
 </div>
+
+

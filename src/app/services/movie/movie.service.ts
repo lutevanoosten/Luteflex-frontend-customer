@@ -10,7 +10,7 @@ export class MovieService {
 
   endpoint = 'http://localhost:8101//';
 
-  movieList: Array<Movie> = [];
+  movieList: Movie[] = [];
 
   constructor() { }
 
@@ -30,11 +30,11 @@ export class MovieService {
       });
   }
 
-  async searchMovies(keyword: string): Promise<boolean> {
-    return axios.get(this.endpoint + 'movie/search/' + keyword)
+  async searchMovies(keyword: string) {
+    return axios.get<Array<Movie>>(this.endpoint + 'movie/search/' + keyword)
       .then((response) => {
-        console.log(response.data);
-        return response.data;
+        this.movieList = response.data;
+        return this.movieList;
       });
   }
 

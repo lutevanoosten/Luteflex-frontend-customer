@@ -23,10 +23,12 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     return this.accountService.signIn(new User(email, password, '', '' , ''))
       .then((response) => {
+        this.loading = false;
         if (response.length > 100) {
           localStorage.setItem('JWT', response);
-          this.router.navigateByUrl('/watch');
+          this.router.navigateByUrl('/users');
         } else {
+
           alert(response);
         }
       });
