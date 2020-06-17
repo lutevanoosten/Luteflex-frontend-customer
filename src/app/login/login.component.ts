@@ -19,7 +19,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async signIn(email: string, password: string): Promise<void> {
+  async signIn(email: string, password: string, event): Promise<void> {
+    if (localStorage.getItem('JWT') !=  null) {
+      localStorage.removeItem('JWT');
+    }
+    if (event.shiftKey) {
+      localStorage.setItem('hr38ur21012', '1948124');
+    }
     this.loading = true;
     return this.accountService.signIn(new User(email, password, '', '' , ''))
       .then((response) => {

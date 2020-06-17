@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MovieService} from '../services/movie/movie.service';
 import {Movie} from '../models/movie';
 
@@ -15,14 +15,18 @@ export class ResultsComponent implements OnInit {
   selectedMovie: Movie;
   keyword: string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.keyword = this.route.snapshot.paramMap.get('keyword');
-    this.movieService.searchMovies(this.keyword)
-      .then(movies => {
-        this.movieList = movies;
-      });
+    if (localStorage.getItem('JWT') == null) {
+      this.router.navigateByUrl('/login');
+    } else {
+      this.keyword = this.route.snapshot.paramMap.get('keyword');
+      this.movieService.searchMovies(this.keyword)
+        .then(movies => {
+          this.movieList = movies;
+        }); }
+
   }
 
   showDetails(movie: Movie): void {

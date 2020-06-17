@@ -7,7 +7,8 @@ export class Personalization {
   favorites: string[];
   watched: string[];
 
-  constructor(Mainaccount: number, Name: string, Avatar: string, Favorites: string[], Watched: string[]) {
+  constructor(Id: number, Mainaccount: number, Name: string, Avatar: string, Favorites: string[], Watched: string[]) {
+    this.id = Id;
     this.mainaccount = Mainaccount;
     this.name = Name;
     this.avatar = Avatar;

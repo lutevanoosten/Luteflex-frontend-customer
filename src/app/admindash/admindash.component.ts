@@ -1,6 +1,8 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Movie} from '../models/movie';
 import {MovieService} from '../services/movie/movie.service';
+import {Router} from '@angular/router';
+import {User} from '../models/user';
 
 
 @Component({
@@ -10,17 +12,21 @@ import {MovieService} from '../services/movie/movie.service';
 })
 export class AdmindashComponent implements OnInit {
 
-  constructor(private cdr: ChangeDetectorRef ) { }
+  constructor(private cdr: ChangeDetectorRef, private router: Router) { }
 
   movieService = new MovieService();
 
   movieList: Movie[] = [];
 
   ngOnInit(): void {
-    this.movieService.getMovies()
-      .then(movies => {
-        this.movieList = movies;
-      });
+    if (localStorage.getItem('hr38ur21012') == null) {
+      this.router.navigateByUrl('/login');
+    } else {
+      this.movieService.getMovies()
+        .then(movies => {
+          this.movieList = movies;
+        });
+    }
   }
 
   uploadFilm(title: string, genre: string, beschrijving: string, cast: string, regiseur: string, posterurl: string,

@@ -7,7 +7,7 @@ import {User} from '../../models/user';
 })
 export class AccountService {
 
-  endpoint = 'http://localhost:8099//';
+  endpoint = 'http://userservice-env.eba-bfd9pyda.eu-central-1.elasticbeanstalk.com/';
 
   constructor() { }
 

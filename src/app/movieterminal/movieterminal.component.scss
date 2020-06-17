@@ -304,3 +304,9 @@ margin-top: 40vw;
   border: none;
   border-radius: 4px;
 }
+
+
+.favorite:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}

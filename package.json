@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href /pefrontend/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "awsdeploy": "aws s3 sync dist/ s3://luteflexfrontend"
   },
   "private": true,
   "dependencies": {
@@ -19,12 +20,13 @@
     "@angular/platform-browser": "~9.0.0",
     "@angular/platform-browser-dynamic": "~9.0.0",
     "@angular/router": "~9.0.0",
+    "axios": "latest",
     "bootstrap": "^4.4.1",
     "ngx-bootstrap": "^5.3.2",
     "rxjs": "~6.5.4",
+    "serverless-dotenv-plugin": "^2.4.2",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "axios": "latest"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.1",

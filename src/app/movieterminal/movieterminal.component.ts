@@ -4,6 +4,8 @@ import {$} from 'protractor';
 import {Movie} from '../models/movie';
 import {MovieService} from '../services/movie/movie.service';
 import {Router} from '@angular/router';
+import {Personalization} from '../models/personalization';
+import {PersonalizationService} from '../services/personalization/personalization.service';
 
 @Component({
   selector: 'app-movieterminal',
@@ -12,6 +14,9 @@ import {Router} from '@angular/router';
 })
 export class MovieterminalComponent implements OnInit {
 
+  persService: PersonalizationService = new PersonalizationService();
+
+  subUser: Personalization;
   movieService = new MovieService();
   movieList: Movie[] = [];
   genreList: string[] = [];
@@ -21,20 +26,24 @@ export class MovieterminalComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.movieService.getMovies()
-      .then(movies => {
-        for (const movie of movies) {
-          if (!this.genreList.includes(movie.genre)) {
-            this.genreList.push(movie.genre);
-            console.log('what');
+    if (localStorage.getItem('JWT') == null) {
+      this.router.navigateByUrl('/login');
+    } else {
+      this.subUser = JSON.parse(localStorage.getItem('user'));
+
+      this.movieService.getMovies()
+        .then(movies => {
+          for (const movie of movies) {
+            if (!this.genreList.includes(movie.genre)) {
+              this.genreList.push(movie.genre);
+              console.log('what');
+            }
+            console.log('what2');
           }
-          console.log('what2');
-        }
-        console.log('what3');
-        this.movieList = movies;
-      });
-
-
+          console.log('what3');
+          this.movieList = movies;
+        });
+    }
   }
 
   openNav(): void {
@@ -70,12 +79,25 @@ export class MovieterminalComponent implements OnInit {
 
   playvideo(): void {
   document.getElementById('videoplayer').requestFullscreen();
-  document.getElementById('videoplayer')[0].play();
-}
+  }
 
   searchMovies(keyword: string): void {
     if (keyword.length > 0) {
       this.router.navigate(['/search', keyword]);
     }
+  }
+
+  addToFav(movie: Movie): void {
+    this.subUser.favorites.push(movie.id.toString());
+    this.persService.editUser(this.subUser);
+  }
+  removeFromFav(movie: Movie): void {
+    this.subUser.favorites.splice(this.subUser.favorites.indexOf(movie.id.toString()), 1);
+    this.persService.editUser(this.subUser);
+  }
+
+  signOut() {
+    localStorage.removeItem('JWT');
+    this.router.navigateByUrl('/');
   }
 }

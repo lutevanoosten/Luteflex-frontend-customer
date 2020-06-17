@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   stepFive = false;
 
   email: string = sessionStorage.getItem('email');
-  package: string;
+  package = 'basic';
   password: string;
   username: string;
 
@@ -65,7 +65,7 @@ export class RegisterComponent implements OnInit {
       this.password = pw;
       this.username = name;
       await this.createAccount().then((response) => {
-        console.log(response)
+        console.log(response);
         if (response) {
           this.stepFour = false;
 

@@ -12,8 +12,13 @@ export class HomeComponent implements OnInit {
   emailInUse = false;
 
   ngOnInit(): void {
+    if (localStorage.getItem('JWT') !=  null) {
+      localStorage.removeItem('JWT');
+    }
     const coll = document.getElementsByClassName('collapsible');
     let i;
+
+    localStorage.removeItem('JWT');
 
     for (i = 0; i < coll.length; i++) {
       coll[i].addEventListener('click', function() {
@@ -25,6 +30,9 @@ export class HomeComponent implements OnInit {
           content.style.display = 'block';
         }
       });
+    }
+    if (localStorage.getItem('hr38ur21012') != null) {
+      localStorage.removeItem('hr38ur21012');
     }
   }
 

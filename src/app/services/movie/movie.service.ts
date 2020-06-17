@@ -8,7 +8,7 @@ import {Movie} from '../../models/movie';
 })
 export class MovieService {
 
-  endpoint = 'http://localhost:8101//';
+  endpoint = 'http://movieservice-env.eba-xhqipqcd.eu-central-1.elasticbeanstalk.com/';
 
   movieList: Movie[] = [];
 

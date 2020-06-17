@@ -96,3 +96,15 @@
 
 
 }
+
+.btns{
+  width: 100%;
+  color: white;
+  background-color: red;
+  border: none;
+  margin-bottom: 1px;
+}
+
+.btns:hover{
+  background-color: darkred;
+}
