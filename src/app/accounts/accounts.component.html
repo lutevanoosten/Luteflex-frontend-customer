@@ -21,9 +21,10 @@
       </div>
       <img (click)="cancelAvatar()" class="chosenAvatar" *ngIf="avatarchosen" src="../../assets/images/avatar/av{{chosenavatar}}.png">
       <input #name type="text" placeholder="Kies een naam">
+      <button *ngIf="!editing" (click)="createUser(name.value)">Aanmaken</button>
+      <button *ngIf="editing" (click)="createUser(name.value)">Opslaan</button>
     </form>
-    <button *ngIf="!editing" (click)="createUser(name.value)">Aanmaken</button>
-    <button *ngIf="editing" (click)="createUser(name.value)">Opslaan</button>
+
   </div>
 
 </div>
